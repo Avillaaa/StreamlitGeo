@@ -20,6 +20,8 @@ st.title("Heatmap")
 
 filepath = "temp_geocoding.csv"  # Ganti dengan path file CSV Anda
 m = leafmap.Map(center=[-7, 108], zoom=5)
+regions = "prov 37.geojson"
+m.add_geojson(regions, layer_name="Provinsi Indonesia")
 m.add_heatmap(
     filepath,
     latitude="Latitude",
