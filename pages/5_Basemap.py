@@ -8,11 +8,6 @@ A Streamlit map template
 <https://github.com/opengeos/streamlit-map-template>
 """
 
-st.sidebar.title("About")
-st.sidebar.info(markdown)
-logo = "https://i.imgur.com/UbOXYAU.png"
-st.sidebar.image(logo)
-
 
 st.title("Searching Basemaps")
 st.markdown(
