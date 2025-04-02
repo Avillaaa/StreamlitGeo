@@ -4,6 +4,9 @@ __pycache__/
 *$py.class
 
 *.csv
+
+pages/5_Basemap.py
+pages/2_Map_Interaktif.py
 # C extensions
 *.so
 
