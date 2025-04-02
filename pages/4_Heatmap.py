@@ -21,7 +21,7 @@ filepath = "temp_geocoding.csv"  # Ganti dengan path file CSV Anda
 
 col1, col2 = st.columns([4, 1])
 options = list(leafmap.basemaps.keys())
-index = options.index("OpenTopoMap")
+index = options.index("OpenStreetMap")
 
 with col2:
 
