@@ -1,6 +1,4 @@
 import streamlit as st
-st.title("Penyebaran Pasien Rawat Jalan")
-st.subheader("Halaman Utama")
 st.write("""
         Sebuah Aplikasi Sederhana berbasis Python menggunakan library Streamlit untuk melihat penyebaran pasien rajal melalui geocoding.
         """)

@@ -11,4 +11,4 @@ A Streamlit map template
 
 # Customize page title
 st.title("Dashboard sederhana penyebaran data pasien rawat jalan")
-
+st.subheader("Halaman Utama")
