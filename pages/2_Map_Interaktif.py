@@ -7,7 +7,7 @@ A Streamlit map template
 """
 
 
-st.title("Interactive Map")
+st.title("Map Interaktif")
 
 col1, col2 = st.columns([4, 1])
 options = list(leafmap.basemaps.keys())
@@ -15,7 +15,7 @@ index = options.index("OpenTopoMap")
 
 with col2:
 
-    basemap = st.selectbox("Select a basemap:", options, index)
+    basemap = st.selectbox("Pilih basemap:", options, index)
 
 
 with col1:

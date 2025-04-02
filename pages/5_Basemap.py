@@ -9,14 +9,10 @@ A Streamlit map template
 """
 
 
-st.title("Searching Basemaps")
-st.markdown(
-    """
-This app is a demonstration of searching and loading basemaps from [xyzservices](https://github.com/geopandas/xyzservices) and [Quick Map Services (QMS)](https://github.com/nextgis/quickmapservices). Selecting from 1000+ basemaps with a few clicks.
-"""
-)
+st.title("Pilihan Basemaps")
 
-with st.expander("See demo"):
+
+with st.expander("Lihat demo"):
     st.image("https://i.imgur.com/0SkUhZh.gif")
 
 row1_col1, row1_col2 = st.columns([3, 1])
@@ -26,8 +22,8 @@ tiles = None
 
 with row1_col2:
 
-    checkbox = st.checkbox("Search Quick Map Services (QMS)")
-    keyword = st.text_input("Enter a keyword to search and press Enter:")
+    checkbox = st.checkbox("Cari Quick Map Services (QMS)")
+    keyword = st.text_input("Cari dengan kata kunci lalu enter:")
     empty = st.empty()
 
     if keyword:
