@@ -1,7 +1,5 @@
 import streamlit as st
-st.write("""
-        Sebuah Aplikasi Sederhana berbasis Python menggunakan library Streamlit untuk melihat penyebaran pasien rajal melalui geocoding.
-        """)
+st.title("Tentang Aplikasi")
 
     # Company Values Section
 st.subheader("Tujuan Aplikasi ini")

@@ -12,3 +12,6 @@ A Streamlit map template
 # Customize page title
 st.title("Dashboard sederhana penyebaran data pasien rawat jalan")
 st.subheader("Halaman Utama")
+st.write("""
+        Sebuah Aplikasi Sederhana berbasis Python menggunakan library Streamlit untuk melihat penyebaran pasien rajal melalui geocoding.
+        """)
