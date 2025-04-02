@@ -16,10 +16,8 @@ st.write("""
 st.subheader("Menu Navigasi")
 st.write("""
         - **Tentang:** Memuat Informasi terkait Aplikasi dan Pembuat Aplikasi.
-        - **Map Interaktif:** Halaman map interaktif.
         - **Cluster Penyebaran:** Menampilkan cluster penyebaran.
         - **Heatmap:** Menampilkan peta sebaran pasien rawat jalan.
-        - **Basemap:** Memilih Peta Dasar.
         """)
 
     # Contact Information
