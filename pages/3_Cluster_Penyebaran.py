@@ -8,7 +8,7 @@ A Streamlit map template
 <https://github.com/opengeos/streamlit-map-template>
 """
 
-st.title("Marker Cluster")
+st.title("Cluster Penyebaran")
 
 
 m = leafmap.Map(center=[40, -100], zoom=4)
