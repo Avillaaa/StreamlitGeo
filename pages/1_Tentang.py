@@ -8,17 +8,18 @@ st.write("""
     # Company Values Section
 st.subheader("Tujuan Aplikasi ini")
 st.write("""
-        - Memprediksi Tindak Lnajut Akhir Pasien IGD, Rawat Inap/Tidak.
+        - Melihat Penyebaran Pasien Rawat Jalan.
         - Membantu Pengambilan Keputusan.
-        - Membantu Memperoleh hasil Prediktif berdasarkan Model yang Dilatih.
         """)
 
     # Services Offered
 st.subheader("Menu Navigasi")
 st.write("""
-        - **Halaman Utama:** Memuat Informasi terkait Aplikasi dan Pembuat Aplikasi.
-        - **Prediksi:** Halaman untuk melakukan prediksi.
-        - **History:** Lampiran dan Informasi Lokasi Penelitian.
+        - **Tentang:** Memuat Informasi terkait Aplikasi dan Pembuat Aplikasi.
+        - **Map Interaktif:** Halaman map interaktif.
+        - **Cluster Penyebaran:** Menampilkan cluster penyebaran.
+        - **Heatmap:** Menampilkan peta sebaran pasien rawat jalan.
+        - **Geocoding:** Mengubah alamat menjadi koordinat geografis.
         """)
 
     # Contact Information
@@ -33,5 +34,5 @@ st.write("""
 st.markdown("""
         ---
         ### Follow Us:
-        [LinkedIn](https://www.linkedin.com/in/muhammad-avilla-701ba6324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | [Twitter](https://www.instagram.com/avillalif?igsh=czVzcnJxY2QzZ2M0)
+        [LinkedIn](https://www.linkedin.com/in/muhammad-avilla-701ba6324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | [Instagram](https://www.instagram.com/avillalif?igsh=czVzcnJxY2QzZ2M0)
         """)
