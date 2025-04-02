@@ -15,3 +15,4 @@ st.subheader("Halaman Utama")
 st.write("""
         Sebuah Aplikasi Sederhana berbasis Python menggunakan library Streamlit untuk melihat penyebaran pasien rajal melalui geocoding.
         """)
+st.image("foto igd.jpg", caption="Foto IGD RS An-Nisa", use_column_width=True)
