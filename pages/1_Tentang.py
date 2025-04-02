@@ -19,7 +19,7 @@ st.write("""
         - **Map Interaktif:** Halaman map interaktif.
         - **Cluster Penyebaran:** Menampilkan cluster penyebaran.
         - **Heatmap:** Menampilkan peta sebaran pasien rawat jalan.
-        - **Geocoding:** Mengubah alamat menjadi koordinat geografis.
+        - **Basemap:** Memilih Peta Dasar.
         """)
 
     # Contact Information
