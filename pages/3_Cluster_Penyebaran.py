@@ -13,7 +13,7 @@ st.title("Cluster Penyebaran")
 
 col1, col2 = st.columns([4, 1])
 options = list(leafmap.basemaps.keys())
-index = options.index("OpenTopoMap")
+index = options.index("OpenStreetMap")
 
 with col2:
 
