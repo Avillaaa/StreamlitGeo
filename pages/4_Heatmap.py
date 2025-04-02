@@ -41,5 +41,6 @@ with col1:
         name="Heat map",
         radius=20,
     )
+    m.add_basemap(basemap)
     m.to_streamlit(height=700)
 
