@@ -1,5 +1,6 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
+import pandas as pd
 
 st.set_page_config(layout="wide")
 
@@ -25,10 +26,27 @@ with col1:
     m = leafmap.Map(center=[40, -100], zoom=4)
     cities = "./geocoding.csv"
     regions = "prov 37.geojson"
+    df = pd.read_csv(cities)
+
+    search_query = st.text_input("Cari berdasarkan NO RM:")
+    if search_query:
+        filtered_df = df[df["NO RM"].astype(str).str.contains(search_query, case=False, na=False)]
+        if filtered_df.empty:
+            st.warning("Tidak ada data yang cocok dengan pencarian.")
+        else:
+            st.success(f"Ditemukan {len(filtered_df)} hasil yang cocok.")
+    else:
+        filtered_df = df
+
+    # Menambahkan dropdown filter
+    jenisbpjs = filtered_df["JENIS BPJS"].unique()  # Ganti "JENIS BPJS" dengan nama kolom yang ingin difilter
+    selected_region = st.selectbox("Pilih JENIS BPJS:", jenisbpjs)
+
+    filtered_df = filtered_df[filtered_df["JENIS BPJS"] == selected_region]
 
     m.add_geojson(regions, layer_name="Provinsi Indonesia")
     m.add_points_from_xy(
-        cities,
+        filtered_df,
         x="Longitude",
         y="Latitude",
         icon_names=["gear", "map", "leaf", "globe"],
