@@ -27,8 +27,8 @@ with col1:
     cities = "./geocoding.csv"
     regions = "prov 37.geojson"
     df = pd.read_csv(cities)
-    df["JENIS BPJS"] = df["JENIS BPJS"].astype(str)
     df["JENIS BPJS"] = df["JENIS BPJS"].fillna("Tidak Diketahui").astype(str)
+    df["JENIS BPJS"] = df["JENIS BPJS"].astype(str)
 
 
     search_query = st.text_input("Cari berdasarkan NO RM:")
