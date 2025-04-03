@@ -18,6 +18,8 @@ index = options.index("OpenStreetMap")
 cities = "./geocoding.csv"
 regions = "prov 37.geojson"
 df = pd.read_csv(cities)
+df["JENIS BPJS"] = df["JENIS BPJS"].fillna("Tidak Diketahui").astype(str)
+
 
 with col2:
 
@@ -34,9 +36,10 @@ with col2:
 
     # Menambahkan dropdown filter
     jenisbpjs = filtered_df["JENIS BPJS"].unique()  # Ganti "JENIS BPJS" dengan nama kolom yang ingin difilter
-    selected_region = st.selectbox("Pilih JENIS BPJS:", jenisbpjs)
-
-    filtered_df = filtered_df[filtered_df["JENIS BPJS"] == selected_region]
+    selected_regions = st.multiselect("Pilih JENIS BPJS:", jenisbpjs, default=jenisbpjs)
+    
+    # Filter data berdasarkan pilihan multiple selection
+    filtered_df = filtered_df[filtered_df["JENIS BPJS"].isin(selected_regions)]
 
 
 with col1:
