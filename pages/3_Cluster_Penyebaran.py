@@ -23,7 +23,7 @@ with col2:
 with col1:
 
     m = leafmap.Map(center=[40, -100], zoom=4)
-    cities = "geocoding.csv"
+    cities = "./geocoding.csv"
     regions = "prov 37.geojson"
 
     m.add_geojson(regions, layer_name="Provinsi Indonesia")
