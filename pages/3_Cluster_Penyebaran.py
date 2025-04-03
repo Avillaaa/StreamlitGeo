@@ -19,6 +19,7 @@ cities = "./geocoding.csv"
 regions = "prov 37.geojson"
 df = pd.read_csv(cities)
 df["JENIS BPJS"] = df["JENIS BPJS"].fillna("Tidak Diketahui").astype(str)
+df["TANGGAL REGISTASI"] = pd.to_datetime(df["TANGGAL REGISTASI"], errors="coerce")
 
 
 with col2:
@@ -37,9 +38,24 @@ with col2:
     # Menambahkan dropdown filter
     jenisbpjs = filtered_df["JENIS BPJS"].unique()  # Ganti "JENIS BPJS" dengan nama kolom yang ingin difilter
     selected_regions = st.multiselect("Pilih JENIS BPJS:", jenisbpjs, default=jenisbpjs)
-    
+
     # Filter data berdasarkan pilihan multiple selection
     filtered_df = filtered_df[filtered_df["JENIS BPJS"].isin(selected_regions)]
+
+    min_date = filtered_df["TANGGAL REGISTASI"].min()
+    max_date = filtered_df["TANGGAL REGISTASI"].max()
+    start_date, end_date = st.date_input(
+        "Pilih rentang tanggal registrasi:",
+        [min_date, max_date],
+        min_value=min_date,
+        max_value=max_date,
+    )
+    
+    # Filter data berdasarkan rentang tanggal
+    filtered_df = filtered_df[
+        (filtered_df["TANGGAL REGISTASI"] >= pd.Timestamp(start_date)) &
+        (filtered_df["TANGGAL REGISTASI"] <= pd.Timestamp(end_date))
+    ]
 
 
 with col1:
