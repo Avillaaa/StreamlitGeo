@@ -40,7 +40,7 @@ with col1:
 
     # Menambahkan dropdown filter
     jenisbpjs = filtered_df["JENIS BPJS"].unique()  # Ganti "JENIS BPJS" dengan nama kolom yang ingin difilter
-    selected_region = st.selectbox("Pilih JENIS BPJS:", jenisbpjs)
+    selected_region = st.multiselect("Pilih JENIS BPJS:", jenisbpjs)
 
     filtered_df = filtered_df[filtered_df["JENIS BPJS"] == selected_region]
 
