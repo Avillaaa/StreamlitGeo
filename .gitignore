@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 *.csv
+*.xlsx
 
 pages/5_Basemap.py
 pages/2_Map_Interaktif.py
