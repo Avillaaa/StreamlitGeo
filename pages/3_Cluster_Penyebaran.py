@@ -1,38 +1,6 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
 import pandas as pd
-import json
-
-# Baca file JSON
-input_file = "simplified-indonesia-cities.json"
-output_file = "simplified-indonesia-cities-fixed.geojson"
-
-try:
-    with open(input_file, "r") as f:
-        data = json.load(f)
-
-    # Validasi struktur GeoJSON
-    if data.get("type") != "FeatureCollection":
-        raise ValueError("File JSON tidak memiliki tipe 'FeatureCollection'.")
-
-    # Periksa setiap fitur
-    valid_features = []
-    for feature in data.get("features", []):
-        geometry = feature.get("geometry", {})
-        if geometry.get("type") in ["Point", "LineString", "Polygon", "MultiPolygon"] and geometry.get("coordinates"):
-            valid_features.append(feature)
-        else:
-            print(f"Fitur dengan ID {feature.get('properties', {}).get('Code')} memiliki geometri tidak valid.")
-
-    # Simpan fitur yang valid ke file GeoJSON baru
-    data["features"] = valid_features
-    with open(output_file, "w") as f:
-        json.dump(data, f, indent=4)
-
-    print(f"File GeoJSON yang valid telah disimpan ke: {output_file}")
-
-except Exception as e:
-    print(f"Terjadi kesalahan: {e}")
 
 st.set_page_config(layout="wide")
 
@@ -96,7 +64,7 @@ with col1:
     m = leafmap.Map(center=[40, -100], zoom=4)
 
     m.add_geojson(regions, layer_name="Provinsi Indonesia")
-    m.add_geojson(output_file, layer_name="Desa Indonesia")
+    m.add_geojson(desa, layer_name="Desa Indonesia")
     m.add_points_from_xy(
         filtered_df,
         x="Longitude",
