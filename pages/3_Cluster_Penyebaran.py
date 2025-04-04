@@ -17,7 +17,7 @@ options = list(leafmap.basemaps.keys())
 index = options.index("OpenStreetMap")
 cities = "./geocoding.csv"
 regions = "prov 37.geojson"
-desa = "simplified-indonesia-cities.json"
+desa = "simplified-indonesia-cities-fixed.geojson"
 df = pd.read_csv(cities)
 df["JENIS BPJS"] = df["JENIS BPJS"].fillna("Tidak Diketahui").astype(str)
 df["TANGGAL REGISTRASI"] = pd.to_datetime(df["TANGGAL REGISTRASI"], errors="coerce")
@@ -64,7 +64,7 @@ with col1:
     m = leafmap.Map(center=[40, -100], zoom=4)
 
     m.add_geojson(regions, layer_name="Provinsi Indonesia")
-    # m.add_geojson(desa, layer_name="Desa Indonesia")
+    m.add_geojson(desa, layer_name="Desa Indonesia")
     m.add_points_from_xy(
         filtered_df,
         x="Longitude",
