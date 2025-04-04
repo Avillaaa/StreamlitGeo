@@ -1,6 +1,42 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
 import pandas as pd
+import geopandas as gpd
+from shapely.geometry import Polygon
+import ast
+
+#load data
+with open('indonesia_villages_border.geojson') as myfile:
+    data = ast.literal_eval(myfile.read())
+
+#nitiate list containers
+provinces = []
+districts = []
+sub_districts = []
+villages = []
+borders = []
+
+#fill the lists via looping
+for datapoint in data:
+    provinces.append(datapoint.get('province'))
+    districts.append(datapoint.get('district'))
+    sub_districts.append(datapoint.get('sub_district'))
+    villages.append(datapoint.get('village'))
+    borders.append(datapoint.get('border'))
+
+#create as dataframe
+df_village_border = pd.DataFrame({
+    'province' : provinces,
+    'district' : districts,
+    'sub_district' : sub_districts,
+    'village' : villages,
+    'border' : borders
+})
+
+df_village_border['geometry'] = df_village_border['border'].apply(lambda x: Polygon(x))
+
+# Buat GeoDataFrame
+gdf = gpd.GeoDataFrame(df_village_border, geometry='geometry')
 
 st.set_page_config(layout="wide")
 
@@ -64,7 +100,7 @@ with col1:
     m = leafmap.Map(center=[40, -100], zoom=4)
 
     m.add_geojson(regions, layer_name="Provinsi Indonesia")
-    # m.add_geojson(desa, layer_name="Desa Indonesia")
+    m.add_geojson(gdf.__geo_interface__, layer_name="Desa Indonesia")
     m.add_points_from_xy(
         filtered_df,
         x="Longitude",
