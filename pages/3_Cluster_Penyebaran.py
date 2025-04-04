@@ -64,7 +64,7 @@ with col1:
     m = leafmap.Map(center=[40, -100], zoom=4)
 
     m.add_geojson(regions, layer_name="Provinsi Indonesia")
-    m.add_geojson(desa, layer_name="Desa Indonesia")
+    m.add_geojson(desa, layer_name="Kota/Kabupaten Indonesia")
     m.add_points_from_xy(
         filtered_df,
         x="Longitude",
