@@ -17,7 +17,7 @@ options = list(leafmap.basemaps.keys())
 index = options.index("OpenStreetMap")
 cities = "./geocoding.csv"
 regions = "prov 37.geojson"
-desa = "IDN_adm_2_kabkota.json"
+desa = "simplified_IDN_adm_2_kabkota.json"
 df = pd.read_csv(cities)
 df["JENIS BPJS"] = df["JENIS BPJS"].fillna("Tidak Diketahui").astype(str)
 df["TANGGAL REGISTRASI"] = pd.to_datetime(df["TANGGAL REGISTRASI"], errors="coerce")
