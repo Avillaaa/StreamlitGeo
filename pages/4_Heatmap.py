@@ -32,7 +32,9 @@ with col1:
 
     m = leafmap.Map(center=[-7, 108], zoom=5)
     regions = "prov 37.geojson"
+    desa = "simplified_IDN_adm_2_kabkota.json"
     m.add_geojson(regions, layer_name="Provinsi Indonesia")
+    m.add_geojson(desa, layer_name="Kota/Kabupaten Indonesia")
     m.add_heatmap(
         filepath,
         latitude="Latitude",
